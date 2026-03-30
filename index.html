@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Omnidimension AI Nexus | Complete Back & Return System</title>
+  <!-- 
+    COMPLETE WEBSITE with Omnidimension AI Widget
+    FEATURES:
+    - MULTIPLE BACK OPTIONS: Floating Back Button + Sticky Back Bar + Footer Back Link
+    - Glassmorphism, neon glow, hover effects, animated buttons
+    - Full AI agent integration with secret key
+    - Smooth scroll to top and section navigation
+    - Immersive design with particle background
+  -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, 'Inter', sans-serif;
+      background: radial-gradient(circle at 20% 30%, #0a0f1f, #03050b);
+      color: #eef5ff;
+      line-height: 1.5;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated Particle Background */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background-image: 
+        radial-gradient(2px 2px at 20% 40%, rgba(0, 255, 255, 0.4), transparent),
+        radial-gradient(3px 3px at 80% 70%, rgba(138, 43, 226, 0.5), transparent),
+        radial-gradient(1px 1px at 10% 90%, rgba(255, 100, 200, 0.6), transparent),
+        radial-gradient(4px 4px at 95% 15%, rgba(0, 212, 255, 0.4), transparent);
+      background-size: 200px 200px, 300px 300px, 150px 150px, 400px 400px;
+      background-repeat: no-repeat;
+      animation: driftParticles 40s linear infinite;
+    }
+
+    @keyframes driftParticles {
+      0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+      100% { background-position: 200px 200px, -300px 300px, 150px -150px, -400px -200px; }
+    }
+
+    /* Glass & Glow Core */
+    .glass-card, .glass-panel, .feature-card {
+      backdrop-filter: blur(12px);
+      background: rgba(15, 25, 45, 0.45);
+      border: 1px solid rgba(0, 255, 255, 0.25);
+      border-radius: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 12px rgba(0, 255, 255, 0.1);
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    .glass-card:hover, .feature-card:hover {
+      border-color: #0ff;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.5), 0 10px 35px rgba(0,0,0,0.3);
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 1.8rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 2.5rem 1rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .glow-text {
+      font-size: 4rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, #0ff, #a0f, #0ff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradientShift 5s ease infinite;
+      letter-spacing: -0.02em;
+      text-shadow: 0 0 15px rgba(0,255,255,0.4);
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid #0ff;
+      border-radius: 60px;
+      padding: 0.4rem 1.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 8px cyan;
+    }
+
+    /* Trendy Button Group */
+    .button-group {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+
+    .trendy-btn {
+      background: linear-gradient(95deg, rgba(0, 255, 255, 0.2), rgba(150, 0, 255, 0.2));
+      border: 1.5px solid rgba(0, 255, 255, 0.7);
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+      letter-spacing: 1px;
+      box-shadow: 0 0 5px cyan;
+    }
+
+    .trendy-btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(95deg, #0ff, #a0f);
+      border-color: white;
+      box-shadow: 0 0 25px cyan, 0 0 15px #a0f;
+      color: #000;
+      font-weight: bold;
+    }
+
+    /* Feature Cards */
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 4rem 0;
+    }
+
+    .feature-card {
+      flex: 1 1 280px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-radius: 2rem;
+      background: rgba(20, 30, 55, 0.5);
+      backdrop-filter: blur(12px);
+    }
+
+    .feature-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      filter: drop-shadow(0 0 8px cyan);
+      transition: 0.2s;
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1) rotate(3deg);
+      filter: drop-shadow(0 0 18px magenta);
+    }
+
+    .feature-card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #fff, #9cf);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* AI Spotlight */
+    .ai-spotlight {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 3rem 0;
+      padding: 2rem;
+      border-radius: 2.5rem;
+      background: rgba(10, 20, 35, 0.6);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(0, 255, 255, 0.4);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.1);
+    }
+
+    .ai-info {
+      flex: 2;
+    }
+
+    .ai-info h2 {
+      font-size: 2rem;
+      background: linear-gradient(145deg, cyan, #f0f);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .widget-container {
+      flex: 1.2;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 1.8rem;
+      padding: 1rem;
+      min-height: 300px;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s;
+    }
+
+    .widget-container:hover {
+      border-color: #ff44ee;
+      box-shadow: 0 0 28px rgba(255, 68, 238, 0.6), 0 0 18px cyan;
+    }
+
+    .widget-placeholder-note {
+      font-size: 0.75rem;
+      text-align: center;
+      margin-top: 0.7rem;
+      color: #7df9ff;
+    }
+
+    /* ========== MULTIPLE BACK OPTIONS ========== */
+    
+    /* 1. FLOATING BACK BUTTON (Glowing, Fixed) */
+    .floating-back-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.95), rgba(138, 43, 226, 0.95));
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 0 20px cyan, 0 0 8px rgba(0,255,255,0.5);
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: white;
+      animation: floatGlow 2s infinite;
+    }
+
+    .floating-back-btn:hover {
+      transform: scale(1.15) rotate(360deg);
+      background: linear-gradient(135deg, cyan, magenta);
+      box-shadow: 0 0 35px cyan, 0 0 25px magenta;
+      border-color: white;
+    }
+
+    /* 2. STICKY BACK BAR (Always visible at top) */
+    .sticky-back-bar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(5, 12, 22, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.4);
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .back-btn-sticky {
+      background: linear-gradient(95deg, rgba(0, 255, 255, 0.3), rgba(150, 0, 255, 0.3));
+      border: 1px solid cyan;
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .back-btn-sticky:hover {
+      background: linear-gradient(95deg, cyan, magenta);
+      box-shadow: 0 0 15px cyan;
+      color: black;
+      transform: scale(1.02);
+    }
+
+    .back-indicator {
+      font-size: 0.8rem;
+      color: #0ff;
+    }
+
+    @keyframes floatGlow {
+      0%, 100% { transform: translateY(0px); box-shadow: 0 0 15px cyan; }
+      50% { transform: translateY(-5px); box-shadow: 0 0 30px magenta, 0 0 15px cyan; }
+    }
+
+    /* Toast Messages */
+    .ai-toast {
+      position: fixed;
+      bottom: 110px;
+      right: 30px;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(16px);
+      border-left: 4px solid cyan;
+      padding: 12px 20px;
+      border-radius: 50px;
+      color: #fff;
+      font-size: 0.85rem;
+      z-index: 1001;
+      animation: slideIn 0.4s ease;
+      pointer-events: none;
+      font-weight: 500;
+      box-shadow: 0 0 20px rgba(0,255,255,0.3);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Footer */
+    .footer-glass {
+      margin-top: 4rem;
+      text-align: center;
+      padding: 2rem;
+      border-radius: 2rem;
+      background: rgba(5, 12, 22, 0.6);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid cyan;
+    }
+
+    .footer-back-link {
+      display: inline-block;
+      margin-top: 1rem;
+      background: rgba(0,255,255,0.2);
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid cyan;
+    }
+
+    .footer-back-link:hover {
+      background: cyan;
+      color: black;
+      box-shadow: 0 0 15px cyan;
+    }
+
+    .scroll-hint {
+      text-align: center;
+      margin-top: 1rem;
+      animation: bounce 2s infinite;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    @keyframes pulseGlow {
+      0% { opacity: 0.4; transform: scale(0.8);}
+      100% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 15px cyan;}
+    }
+
+    /* Responsive */
+    @media (max-width: 780px) {
+      .glow-text { font-size: 2.4rem; }
+      .container { padding: 1rem; }
+      .ai-spotlight { flex-direction: column; }
+      .floating-back-btn { width: 50px; height: 50px; font-size: 1.4rem; bottom: 20px; right: 20px; }
+      .sticky-back-bar { padding: 0.5rem 1rem; }
+    }
+
+    code {
+      background: rgba(0,255,255,0.2);
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+      font-family: monospace;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="particles"></div>
+
+<!-- STICKY BACK BAR - Always visible at top -->
+<div class="sticky-back-bar">
+  <div class="back-indicator">✨ OMNIDIMENSION AI PORTAL ✨</div>
+  <div style="display: flex; gap: 12px;">
+    <button class="back-btn-sticky" id="stickyBackBtn">⬆️ BACK TO TOP</button>
+    <button class="back-btn-sticky" id="stickyBackToAI">🤖 BACK TO AI WIDGET</button>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Hero Section -->
+  <div class="hero glass-card" style="background: rgba(10, 20, 40, 0.5); padding: 2rem;" id="topSection">
+    <div class="hero-badge">✨ OMNIDIMENSION AI AGENT • FULL BACK SYSTEM ✨</div>
+    <h1 class="glow-text">Quantum AI • Instant Return</h1>
+    <p style="max-width: 700px; margin: 1rem auto; font-size: 1.1rem; opacity: 0.9;">
+      Chat with the AI agent, explore deep insights, and <strong style="color:#0ff;">RETURN INSTANTLY</strong> using <strong>THREE BACK OPTIONS</strong>:<br>
+      🟢 Floating Glow Button • 🟡 Sticky Top Bar • 🔵 Footer Link
+    </p>
+    <div class="button-group">
+      <button class="trendy-btn" id="engageAiBtn">🤖 Talk to AI Agent</button>
+      <button class="trendy-btn" id="exploreFeaturesBtn">💎 Explore Features</button>
+      <button class="trendy-btn" id="glowWaveBtn">🌀 Glow Wave</button>
+    </div>
+    <div class="scroll-hint">↓ Scroll down to interact with Omnidimension AI ↓</div>
+  </div>
+
+  <!-- Feature Cards -->
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🧠</div>
+      <h3>Neural Agility</h3>
+      <p>Contextual memory & adaptive learning — the AI agent remembers your flow.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <h3>Lightning Core</h3>
+      <p>Sub‑second responses, real‑time sync, and dynamic inference.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔮</div>
+      <h3>Predictive Insight</h3>
+      <p>Proactive suggestions and intelligent recommendations.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⬆️</div>
+      <h3>3X Back Options</h3>
+      <p>Floating button + Sticky bar + Footer link — always return easily.</p>
+    </div>
+  </div>
+
+  <!-- AI Spotlight with Omnidimension Widget -->
+  <div class="ai-spotlight" id="aiWidgetSection">
+    <div class="ai-info">
+      <h2>🤖 <span style="background: linear-gradient(145deg, cyan, fuchsia); -webkit-background-clip:text; background-clip:text; color:transparent;">Omnidimension AI Agent</span></h2>
+      <p class="neon-border" style="margin-bottom: 1rem; border-left: 3px solid cyan; padding-left: 1rem;">
+        This website integrates the official Omnidimension widget with your secret key. The AI agent is a powerful assistant capable of answering questions, guiding users, and delivering futuristic interaction.
+      </p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 1rem;">
+        <span style="background: rgba(0,255,255,0.2); padding: 0.2rem 1rem; border-radius: 30px; font-size: 0.75rem;">🔑 Secret Key Active</span>
+        <span style="background: rgba(255,0,255,0.2); padding: 0.2rem 1rem; border-radius: 30px; font-size: 0.75rem;">⚡ Async Load</span>
+        <span style="background: rgba(0,255,128,0.2); padding: 0.2rem 1rem; border-radius: 30px; font-size: 0.75rem;">💬 Live Chat Ready</span>
+        <span style="background: rgba(255,215,0,0.2); padding: 0.2rem 1rem; border-radius: 30px; font-size: 0.75rem;">⬆️ 3 BACK OPTIONS</span>
+      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.9rem;">
+        👇 <strong>AI Widget Below</strong> — Click the chat bubble, talk to the agent, then use <strong style="color:cyan;">ANY BACK BUTTON</strong> to return instantly.
+      </p>
+    </div>
+    <div class="widget-container glass-card" id="widgetGlowCard">
+      <div style="text-align: center; margin-bottom: 0.5rem;">
+        <span style="font-size: 0.7rem; background: rgba(0,255,255,0.3); padding: 0.2rem 1rem; border-radius: 40px;">ACTIVE AI NEXUS</span>
+      </div>
+      <!-- Omnidimension Widget Script - EXACT as per requirement -->
+      <script id="omnidimension-web-widget" async src="https://omnidim.io/web_widget.js?secret_key=cb86d4bd88482888b4cd43ef50bb7ac0"></script>
+      <div class="widget-placeholder-note" id="widgetNote">
+        💠 Omnidimension AI core loading... Agent will appear shortly. Click to chat!
+      </div>
+    </div>
+  </div>
+
+  <!-- Step-by-Step Process & Complete Guide -->
+  <div class="glass-card" style="padding: 2rem; margin: 2rem 0; background: rgba(12, 22, 40, 0.7);">
+    <h3 style="font-size: 1.8rem; margin-bottom: 1rem; display: flex; gap: 12px; align-items: center;">📘 <span style="text-shadow:0 0 5px cyan;">Complete Website with BACK Options</span></h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1.5rem;">
+      <div class="glass-card" style="padding: 1rem; background: rgba(0,0,0,0.3);">
+        <strong>🔥 Step 1: Immersive Design</strong>
+        <p>Particle background, glassmorphism, gradient neon text, floating animations — fully creative UI.</p>
+      </div>
+      <div class="glass-card" style="padding: 1rem; background: rgba(0,0,0,0.3);">
+        <strong>⚡ Step 2: Widget Integration</strong>
+        <p>Added <code>script id="omnidimension-web-widget" async src="...secret_key"</code>. Widget loads in glass container.</p>
+      </div>
+      <div class="glass-card" style="padding: 1rem; background: rgba(0,0,0,0.3);">
+        <strong>⬆️ Step 3: THREE BACK OPTIONS</strong>
+        <p>1️⃣ Floating Glow Button (bottom right)<br>2️⃣ Sticky Back Bar (always on top)<br>3️⃣ Footer Back Link (bottom of page)</p>
+      </div>
+      <div class="glass-card" style="padding: 1rem; background: rgba(0,0,0,0.3);">
+        <strong>🧠 Step 4: AI Agent Integration</strong>
+        <p>After AI talk, any back button smoothly scrolls to top or widget section as needed.</p>
+      </div>
+    </div>
+    <p style="margin-top: 1.5rem; text-align: center; font-size: 0.9rem;">
+      🚀 <strong>NOW YOU HAVE FULL BACK OPTIONS!</strong> After talking to the Omnidimension AI, click the <strong style="color:cyan;">FLOATING GLOW BUTTON</strong>, <strong style="color:cyan;">STICKY BACK BAR</strong>, or <strong style="color:cyan;">FOOTER LINK</strong> to return instantly.
+    </p>
+  </div>
+
+  <!-- Additional Interactive Glass Cards -->
+  <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin: 2rem 0;">
+    <div class="glass-card" style="flex:1; min-width: 180px; text-align: center; padding: 1.2rem;">
+      <div style="font-size: 2rem;">💬</div>
+      <div>AI Chat Ready</div>
+      <small>talk & return</small>
+    </div>
+    <div class="glass-card" style="flex:1; min-width: 180px; text-align: center; padding: 1.2rem;">
+      <div style="font-size: 2rem;">⬆️</div>
+      <div>3 Back Options</div>
+      <small>always accessible</small>
+    </div>
+    <div class="glass-card" style="flex:1; min-width: 180px; text-align: center; padding: 1.2rem;">
+      <div style="font-size: 2rem;">🌊</div>
+      <div>Glow Effects</div>
+      <small>neon immersion</small>
+    </div>
+  </div>
+
+  <footer class="footer-glass">
+    <p>© 2025 Omnidimension • Complete AI Portal with BACK System | Secret Key: cb86d4bd88482888b4cd43ef50bb7ac0</p>
+    <p style="font-size: 0.7rem; margin-top: 8px;">🌌 <strong>THREE BACK OPTIONS AVAILABLE:</strong> Floating Glow Button (bottom right) | Sticky Top Bar | Footer Back Link</p>
+    <div class="footer-back-link" id="footerBackBtn">
+      ⬆️ CLICK HERE TO RETURN TO TOP ⬆️
+    </div>
+    <div style="margin-top: 12px;">
+      <span style="display: inline-block; width: 8px; height: 8px; background: cyan; border-radius: 50%; box-shadow:0 0 10px cyan; animation: pulseGlow 1.5s infinite;"></span>
+      <span style="margin-left: 6px;">AI Agent Online • Back Options Ready</span>
+    </div>
+  </footer>
+</div>
+
+<!-- FLOATING BACK BUTTON (GLOWING) -->
+<div class="floating-back-btn" id="floatingBackBtn" title="Return to Top">
+  ⬆️
+</div>
+
+<script>
+  (function() {
+    // Get all back buttons
+    const floatingBack = document.getElementById('floatingBackBtn');
+    const stickyBackBtn = document.getElementById('stickyBackBtn');
+    const stickyBackToAI = document.getElementById('stickyBackToAI');
+    const footerBackBtn = document.getElementById('footerBackBtn');
+    const topSection = document.getElementById('topSection');
+    const aiWidgetSection = document.getElementById('aiWidgetSection');
+    
+    // Helper: Smooth scroll to element
+    function smoothScrollTo(element) {
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        showToastMessage('⬆️ Returned successfully!', '#0ff');
+      }
+    }
+    
+    // Helper: Scroll to Top
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      showToastMessage('✨ Returned to top! AI agent still active. ✨', '#0ff');
+    }
+    
+    // Helper: Show floating toast messages
+    function showToastMessage(message, borderColor = 'cyan') {
+      const toast = document.createElement('div');
+      toast.className = 'ai-toast';
+      toast.style.borderLeftColor = borderColor;
+      toast.innerHTML = message;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = '0.3s';
+        setTimeout(() => toast.remove(), 400);
+      }, 3000);
+    }
+    
+    // BACK OPTION 1: Floating Glow Button
+    if (floatingBack) {
+      floatingBack.addEventListener('click', scrollToTop);
+    }
+    
+    // BACK OPTION 2: Sticky Bar - Back to Top
+    if (stickyBackBtn) {
+      stickyBackBtn.addEventListener('click', scrollToTop);
+    }
+    
+    // BACK OPTION 2 Extra: Sticky Bar - Back to AI Widget Section
+    if (stickyBackToAI) {
+      stickyBackToAI.addEventListener('click', () => {
+        if (aiWidgetSection) {
+          smoothScrollTo(aiWidgetSection);
+          showToastMessage('🤖 Returned to AI Widget! Continue chatting with Omnidimension AI.', '#f0f');
+        } else {
+          scrollToTop();
+        }
+      });
+    }
+    
+    // BACK OPTION 3: Footer Link
+    if (footerBackBtn) {
+      footerBackBtn.addEventListener('click', scrollToTop);
+    }
+    
+    // Additional: Engage AI Button
+    const engageBtn = document.getElementById('engageAiBtn');
+    if (engageBtn) {
+      engageBtn.addEventListener('click', () => {
+        if (aiWidgetSection) {
+          smoothScrollTo(aiWidgetSection);
+          const widgetContainer = document.querySelector('.widget-container');
+          if (widgetContainer) {
+            widgetContainer.style.transition = 'box-shadow 0.3s';
+            widgetContainer.style.boxShadow = '0 0 40px cyan, 0 0 20px fuchsia';
+            setTimeout(() => {
+              widgetContainer.style.boxShadow = '';
+            }, 1200);
+          }
+          showToastMessage('🤖 AI Agent is ready! Start talking. Use any BACK button to return.', '#0ff');
+        }
+      });
+    }
+    
+    // Explore Features Button
+    const exploreBtn = document.getElementById('exploreFeaturesBtn');
+    if (exploreBtn) {
+      exploreBtn.addEventListener('click', () => {
+        const cards = document.querySelectorAll('.feature-card');
+        cards.forEach((card) => {
+          card.style.transform = 'scale(1.02)';
+          card.style.boxShadow = '0 0 30px magenta';
+          setTimeout(() => {
+            card.style.transform = '';
+            card.style.boxShadow = '';
+          }, 800);
+        });
+        showToastMessage('💎 Neural Agility • Lightning Core • Predictive Insight • 3 BACK Options', '#f0f');
+      });
+    }
+    
+    // Glow Wave Effect
+    const glowWaveBtn = document.getElementById('glowWaveBtn');
+    if (glowWaveBtn) {
+      glowWaveBtn.addEventListener('click', () => {
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = 0;
+        overlay.style.left = 0;
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.background = 'radial-gradient(circle, rgba(0,255,255,0.3), rgba(255,0,255,0.2), transparent)';
+        overlay.style.pointerEvents = 'none';
+        overlay.style.zIndex = '9999';
+        overlay.style.animation = 'fadeOutGlow 0.9s forwards';
+        document.body.appendChild(overlay);
+        setTimeout(() => overlay.remove(), 900);
+        showToastMessage('🌀 Glow Wave Activated! Use BACK buttons anytime.', '#0ff');
+      });
+    }
+    
+    // Add keyframes for glow fade
+    const styleSheet = document.createElement("style");
+    styleSheet.textContent = `
+      @keyframes fadeOutGlow {
+        0% { opacity: 1; transform: scale(1);}
+        100% { opacity: 0; transform: scale(1.5);}
+      }
+    `;
+    document.head.appendChild(styleSheet);
+    
+    // Monitor Omnidimension Widget Load Status
+    const widgetScript = document.getElementById('omnidimension-web-widget');
+    const widgetNote = document.getElementById('widgetNote');
+    if (widgetScript) {
+      widgetScript.addEventListener('load', () => {
+        if (widgetNote) {
+          widgetNote.innerHTML = '✅ Omnidimension AI Agent is ACTIVE! Click to start chatting 💬';
+          widgetNote.style.color = '#0ff';
+        }
+        showToastMessage('🧠 Omnidimension AI Agent is online! Talk with it, then use ANY BACK BUTTON to return.', '#0ff');
+      });
+      widgetScript.addEventListener('error', () => {
+        if (widgetNote) {
+          widgetNote.innerHTML = '⚠️ Widget connection issue. Refresh or check network. AI agent will appear when ready.';
+          widgetNote.style.color = '#ffaa88';
+        }
+      });
+    }
+    
+    // Welcome toast with back options info
+    setTimeout(() => {
+      showToastMessage('✨ 3 BACK OPTIONS ACTIVE: Floating Button | Sticky Bar | Footer Link ✨', '#0ff');
+    }, 1500);
+  })();
+</script>
+</body>
+</html>
